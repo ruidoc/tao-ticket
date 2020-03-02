@@ -9,6 +9,16 @@ class MyIndex extends StatefulWidget {
 }
 
 class _MyIndexState extends State<MyIndex> {
+  ScrollController _controller = new ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      print(_controller.offset);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +32,15 @@ class _MyIndexState extends State<MyIndex> {
       // ),
       body: CostomHeader(
         title: '我的',
+        isStack: true,
         child: ListView(
+          controller: _controller,
           padding: EdgeInsets.all(0),
           children: <Widget>[
+            SizedBox(
+              height: 900,
+              child: Text('888'),
+            ),
             FlatButton(
               child: Text('改变主题'),
               onPressed: () {

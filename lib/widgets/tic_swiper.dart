@@ -3,12 +3,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:tao_ticket/model/nav_home/recommend.dart';
 
 class TicSwipper extends StatefulWidget {
-  TicSwipper({
-    Key key,
-    this.itemLists,
-    this.margin,
-    this.decoration
-  });
+  TicSwipper({Key key, this.itemLists, this.margin, this.decoration});
 
   final List<SwiperData> itemLists;
   final EdgeInsets margin;
@@ -20,13 +15,16 @@ class TicSwipper extends StatefulWidget {
 class _TicSwipperState extends State<TicSwipper> {
   @override
   Widget build(BuildContext context) {
+    bool isReady = widget.itemLists != null;
     return Container(
       height: 120,
-      margin: EdgeInsets.only(
-        top: 12, bottom: 20
-      ),
-      child: Swiper(
-        itemCount: widget.itemLists.length,
+      margin: EdgeInsets.only(top: 12, bottom: 20),
+      child: isReady ? Swiper(
+        // control: new SwiperControl(),
+        // transformer: PageTransformer()
+        // viewportFraction: 0.8,
+        // scale: 0.9,
+        itemCount: widget.itemLists?.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
             margin: widget.margin,
@@ -41,7 +39,7 @@ class _TicSwipperState extends State<TicSwipper> {
           );
         },
         pagination: SwiperPagination(),
-      ),
+      ) : null,
     );
   }
 }

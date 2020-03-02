@@ -6,10 +6,12 @@ class CostomHeader extends StatefulWidget {
   CostomHeader({
     this.title,
     this.child,
+    this.isStack = false,
   });
 
   final String title;
   final Widget child;
+  final bool isStack;
 
   @override
   _CostomHeaderState createState() => _CostomHeaderState();
@@ -24,18 +26,7 @@ class _CostomHeaderState extends State<CostomHeader> {
     return Container(
       // color: Colors.red,
       child: SizedBox.expand(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            header(context),
-            Flexible(
-              child: Container(
-                // color: Colors.red,
-                child: widget.child
-              ),
-            ),
-          ],
-        ),
+        child: widget.isStack ? stackLayout() : flowLayout(),
       ),
     );
   }
@@ -44,7 +35,8 @@ class _CostomHeaderState extends State<CostomHeader> {
     return Container(
       color: Theme.of(context).primaryColor,
       padding: EdgeInsets.only(
-        top: paddingTop, bottom: 10,
+        top: paddingTop,
+        bottom: 10,
       ),
       child: Stack(
         alignment: AlignmentDirectional.center,
@@ -73,6 +65,35 @@ class _CostomHeaderState extends State<CostomHeader> {
           )
         ],
       ),
+    );
+  }
+
+  Widget flowLayout() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        header(context),
+        Flexible(
+          child: Container(
+            // color: Colors.red,
+            child: widget.child,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget stackLayout() {
+    return Stack(
+      children: <Widget>[
+        SizedBox.expand(
+          child: widget.child
+        ),
+        Positioned(
+          left: 0, top: 0, right: 0,
+          child: header(context),
+        ),
+      ],
     );
   }
 }

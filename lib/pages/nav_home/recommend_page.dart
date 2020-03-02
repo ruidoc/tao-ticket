@@ -43,7 +43,7 @@ class _RecommendPageState extends State<RecommendPage>
         padding: EdgeInsets.all(0),
         children: <Widget>[
           TicSwipper(
-            itemLists: _recdModel?.swipersData ?? [],
+            itemLists: _recdModel?.swipersData,
             margin: EdgeInsets.symmetric(horizontal: horizontal),
           ),
           _titleView(title: '即将上映', subTitle: '全部影片'),
