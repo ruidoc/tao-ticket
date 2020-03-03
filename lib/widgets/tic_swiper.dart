@@ -31,7 +31,7 @@ class _TicSwipperState extends State<TicSwipper> {
             decoration: widget.decoration,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),
-              child: Image.network(
+              child:  Image.network(
                 widget.itemLists[index].url,
                 fit: BoxFit.fill,
               ),
