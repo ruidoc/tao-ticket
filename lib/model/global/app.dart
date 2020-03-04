@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppMadel with ChangeNotifier {
-
+class AppMadel extends ChangeNotifier {
   ThemeData themeData = themeDataLight;
 
   static ThemeData themeDataDark = ThemeData(
@@ -16,6 +15,7 @@ class AppMadel with ChangeNotifier {
     accentColor: Color(0xffeb002a),
   );
 
+  // 修改主题
   void changeThemeType() {
     if (themeData.brightness == Brightness.light) {
       themeData = themeDataDark;
@@ -25,8 +25,4 @@ class AppMadel with ChangeNotifier {
     notifyListeners();
   }
 
-  @override
-  void notifyListeners() {
-    super.notifyListeners();
-  }
 }

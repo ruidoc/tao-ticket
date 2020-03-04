@@ -78,8 +78,4 @@ class _HomeIndexState extends State<HomeIndex>
       ),
     );
   }
-
-  void _onScroll(offset) {
-    print(offset);
-  }
 }

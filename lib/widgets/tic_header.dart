@@ -42,6 +42,9 @@ class _TicHeaderState extends State<TicHeader> {
                 ),
               ],
             ),
+            onTap: () {
+              Navigator.pushNamed(context,'test_path');
+            },
           ),
           Expanded(
             child: Container(

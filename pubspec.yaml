@@ -33,7 +33,7 @@ dependencies:
   #状态管理
   provider: ^4.0.4
   #高德地图
-  # amap_map_fluttify: 0.17.13+767ea66
+  amap_map_fluttify: ^0.17.16+b961bcc
   #轮播图
   flutter_swiper: ^1.1.6
   #自动生成modal
@@ -46,6 +46,10 @@ dependencies:
   pull_to_refresh: ^1.5.7
   #拍照和图片选择
   image_picker: ^0.6.3+4
+  #自定义schema
+  uni_links: ^0.2.0
+  permission_handler: ^4.3.0
+  bot_toast: any
   
 dev_dependencies:
   flutter_test:
