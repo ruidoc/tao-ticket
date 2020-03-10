@@ -14,14 +14,14 @@ PODS:
   - AMapFoundation (1.6.2)
   - camera (0.0.1):
     - Flutter
+  - city_pickers (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - flutter_plugin_android_lifecycle (0.0.1):
     - Flutter
   - foundation_fluttify (0.0.1):
     - Flutter
   - image_picker (0.0.1):
-    - Flutter
-  - permission_handler (4.3.0):
     - Flutter
   - shared_preferences (0.0.1):
     - Flutter
@@ -42,11 +42,11 @@ DEPENDENCIES:
   - amap_core_fluttify (from `.symlinks/plugins/amap_core_fluttify/ios`)
   - amap_map_fluttify (from `.symlinks/plugins/amap_map_fluttify/ios`)
   - camera (from `.symlinks/plugins/camera/ios`)
+  - city_pickers (from `.symlinks/plugins/city_pickers/ios`)
   - Flutter (from `Flutter`)
   - flutter_plugin_android_lifecycle (from `.symlinks/plugins/flutter_plugin_android_lifecycle/ios`)
   - foundation_fluttify (from `.symlinks/plugins/foundation_fluttify/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
-  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
   - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
@@ -67,6 +67,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/amap_map_fluttify/ios"
   camera:
     :path: ".symlinks/plugins/camera/ios"
+  city_pickers:
+    :path: ".symlinks/plugins/city_pickers/ios"
   Flutter:
     :path: Flutter
   flutter_plugin_android_lifecycle:
@@ -75,8 +77,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/foundation_fluttify/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
-  permission_handler:
-    :path: ".symlinks/plugins/permission_handler/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
   shared_preferences_macos:
@@ -98,11 +98,11 @@ SPEC CHECKSUMS:
   amap_map_fluttify: 7b197b6a9649c3e72336b44b89ba4b11366884da
   AMapFoundation: 672dc3a4759cb733f447c1e1b020f7ba2729f4ab
   camera: 38cc83ae9a5667bb5a71c7d9edaf60a91920fd4e
+  city_pickers: b0370f4c35c201723b5b7fcce10ec29b59d5bc35
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_plugin_android_lifecycle: 47de533a02850f070f5696a623995e93eddcdb9b
   foundation_fluttify: 3038fcc96aabb59c77f595964954c118af535d57
   image_picker: e3eacd46b94694dde7cf2705955cece853aa1a8f
-  permission_handler: 5c75cfde1229eb85f22d367c093900fac03c6c9e
   shared_preferences: 430726339841afefe5142b9c1f50cb6bd7793e01
   shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
   shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9

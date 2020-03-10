@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_widgets/gradient_widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:tao_ticket/model/global/app.dart';
 import 'package:tao_ticket/model/global/user.dart';
 import 'package:tao_ticket/pages/nav_my/custom_scaffold.dart';
-import 'package:tao_ticket/pages/others/setting.dart';
 import 'package:tao_ticket/utils/common.dart';
 import 'package:tao_ticket/widgets/Iconfont.dart';
 
@@ -103,18 +103,19 @@ class _MyIndexState extends State<MyIndex> {
                       ),
                       child: Column(
                         children: <Widget>[
-                          Icon(
-                            Iconfont.dianying30,
-                            size: 30,
-                            color: Color(0xFFeb5789),
+                          GradientText(
+                            '\ue932',
+                            shaderRect: Rect.fromLTWH(0.0, 0.0, 0.0, 0.0),
+                            gradient: LinearGradient(
+                                colors: [Color(0xffec6bac), Color(0xffea496d)]),
+                            style: TextStyle(
+                                fontSize: 30.0, fontFamily: 'Iconfont'),
                           ),
                           _textWrap('电影票'),
                         ],
                       ),
                     ),
-                    onTap: (){
-
-                    },
+                    onTap: () {},
                   ),
                   GestureDetector(
                     child: Padding(
@@ -132,9 +133,7 @@ class _MyIndexState extends State<MyIndex> {
                         ],
                       ),
                     ),
-                    onTap: (){
-
-                    },
+                    onTap: () {},
                   ),
                   GestureDetector(
                     child: Padding(
@@ -152,9 +151,7 @@ class _MyIndexState extends State<MyIndex> {
                         ],
                       ),
                     ),
-                    onTap: (){
-
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -185,9 +182,7 @@ class _MyIndexState extends State<MyIndex> {
                         ],
                       ),
                     ),
-                    onTap: (){
-
-                    },
+                    onTap: () {},
                   ),
                   GestureDetector(
                     child: Padding(
@@ -205,9 +200,7 @@ class _MyIndexState extends State<MyIndex> {
                         ],
                       ),
                     ),
-                    onTap: (){
-
-                    },
+                    onTap: () {},
                   ),
                   GestureDetector(
                     child: Padding(
@@ -225,9 +218,7 @@ class _MyIndexState extends State<MyIndex> {
                         ],
                       ),
                     ),
-                    onTap: (){
-
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -349,8 +340,7 @@ class _MyIndexState extends State<MyIndex> {
                     size: 23,
                   ),
                   onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => Setting()));
+                    Navigator.of(context).pushNamed('setting');
                   },
                 )
               ],
@@ -409,7 +399,8 @@ class _MyIndexState extends State<MyIndex> {
         top: 6,
       ),
       child: Text(
-        title, style: TextStyle(
+        title,
+        style: TextStyle(
           fontSize: 13,
         ),
       ),

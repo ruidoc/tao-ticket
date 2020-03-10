@@ -5,19 +5,19 @@ import 'package:tao_ticket/pages/nav_home/index.dart';
 import 'package:tao_ticket/pages/nav_my/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tao_ticket/pages/others/test_path.dart';
+import 'package:tao_ticket/routes/page.dart';
 import 'package:tao_ticket/utils/open_links.dart';
 import 'package:tao_ticket/widgets/Iconfont.dart';
 
 void main() => runApp(
-  MultiProvider(
-    providers: [
-      ChangeNotifierProvider<AppMadel>(create: (_) => AppMadel()),
-      ChangeNotifierProvider<UserModel>(create: (_) => UserModel()),
-    ],
-    child: MyApp(),
-  ),
-);
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider<AppMadel>(create: (_) => AppMadel()),
+          ChangeNotifierProvider<UserModel>(create: (_) => UserModel()),
+        ],
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatefulWidget {
   @override
@@ -36,8 +36,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return MaterialApp(
       title: '淘票票',
       theme: Provider.of<AppMadel>(context).themeData,
-      routes: {
-        'test_page': (context) => TestPath()
+      routes: appRoutes,
+      onGenerateRoute: (RouteSettings settings) {
+        print(settings);
       },
       home: MyHomePage(),
       // home: TestPath(),
@@ -48,11 +49,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
     // print(state);
-    if (state == AppLifecycleState.resumed) {
-      
-    }
+    if (state == AppLifecycleState.resumed) {}
   }
-
 }
 
 class MyHomePage extends StatefulWidget {

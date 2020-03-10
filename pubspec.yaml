@@ -36,8 +36,6 @@ dependencies:
   amap_map_fluttify: ^0.17.16+b961bcc
   #轮播图
   flutter_swiper: ^1.1.6
-  #自动生成modal
-  json_annotation: ^3.0.1
   #瀑布流布局
   flutter_staggered_grid_view: ^0.3.0
   #选择器
@@ -48,15 +46,14 @@ dependencies:
   image_picker: ^0.6.3+4
   #自定义schema
   uni_links: ^0.2.0
-  permission_handler: ^4.3.0
-  bot_toast: any
+  #渐变
+  gradient_widgets: ^0.5.1
+  #城市选择
+  city_pickers: ^0.1.30
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  #构建model
-  build_runner: ^1.7.4
-  json_serializable: ^3.2.5
 
 
 # For information on the generic Dart part of this file, see the
