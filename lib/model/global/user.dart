@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class UserModel extends ChangeNotifier {
   UserModel({
     this.id = 1,
-    this.name = '杨瑞',
+    this.name = 'ruims',
     this.avatar = 'https://image.9xsecndns.cn/image/uicon/1497767baad251f070329abb6ee4b9f8969df4019e06387.png?x-oss-process=image/resize,m_fill,h_310,w_310,limit_0'
   });
-  
+
   int id;
   String name;
   String avatar;

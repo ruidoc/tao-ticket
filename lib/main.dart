@@ -40,6 +40,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         'test_page': (context) => TestPath()
       },
       home: MyHomePage(),
+      // home: TestPath(),
     );
   }
 

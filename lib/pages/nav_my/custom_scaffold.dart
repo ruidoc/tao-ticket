@@ -93,7 +93,7 @@ class _CostomScaffoldState extends State<CostomScaffold> {
       children: <Widget>[
         Container(
           height: 200,
-          color: Colors.red[400],
+          color: Color(0xffabb3c3),
         ),
         SizedBox.expand(
           child: widget.child
