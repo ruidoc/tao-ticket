@@ -15,6 +15,7 @@ class MyIndex extends StatefulWidget {
 class _MyIndexState extends State<MyIndex> {
   ScrollController _controller = new ScrollController();
   double _opacity = 0;
+  double postop = 0;
 
   @override
   void initState() {
@@ -26,7 +27,13 @@ class _MyIndexState extends State<MyIndex> {
       } else if (offset > 1) {
         offset = 1;
       }
-      // print(offset);
+
+      if (_controller.offset > 200) {
+        postop = 200;
+      } else {
+        postop = _controller.offset;
+      }
+      // print(_controller.offset);
       setState(() {
         _opacity = offset;
       });
@@ -38,6 +45,7 @@ class _MyIndexState extends State<MyIndex> {
     final UserModel userInfo = Provider.of<UserModel>(context);
     return CostomScaffold(
       title: '我的',
+      offset: postop,
       isStack: true,
       opacity: _opacity,
       child: ListView(
@@ -47,48 +55,61 @@ class _MyIndexState extends State<MyIndex> {
           _topView(userInfo),
           _cardWidget(
             child: Container(
-              child: Row(children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('会员中心',
+              child: Row(
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        '会员中心',
                         style: TextStyle(
-                          color: Color(0xfff6ca9d),
-                        )),
-                    Text('观影金 191',
+                          color: Color(0xffac8641),
+                        ),
+                      ),
+                      Text(
+                        '观影金 191',
                         style: TextStyle(
                           fontSize: 12,
-                        )),
-                  ],
-                ),
-                Container(
-                  height: 40,
-                  margin: EdgeInsets.only(
-                    left: 8,
-                    right: 8,
+                        ),
+                      ),
+                    ],
                   ),
-                  decoration: BoxDecoration(
-                    border: Border(
+                  Container(
+                    height: 40,
+                    margin: EdgeInsets.only(
+                      left: 8,
+                      right: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border(
                         right: BorderSide(
-                      width: 0.5,
-                      color: Colors.grey[200],
-                    )),
+                          width: 0.5,
+                          color: Colors.grey[200],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
+                  Expanded(
                     child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                      Text('加油升级',
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          '加油升级',
                           style: TextStyle(
                               // fontSize: 14,
-                              )),
-                      Text('再积394经验可升级>',
+                              ),
+                        ),
+                        Text(
+                          '再积394经验可升级>',
                           style: TextStyle(
                             fontSize: 12,
-                          )),
-                    ])),
-              ]),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           _cardWidget(
@@ -105,7 +126,7 @@ class _MyIndexState extends State<MyIndex> {
                         children: <Widget>[
                           GradientText(
                             '\ue932',
-                            shaderRect: Rect.fromLTWH(0.0, 0.0, 0.0, 0.0),
+                            shaderRect: Rect.fromLTWH(0.0, 0.0, 30.0, 20.0),
                             gradient: LinearGradient(
                                 colors: [Color(0xffec6bac), Color(0xffea496d)]),
                             style: TextStyle(
@@ -124,10 +145,13 @@ class _MyIndexState extends State<MyIndex> {
                       ),
                       child: Column(
                         children: <Widget>[
-                          Icon(
-                            Iconfont.xiaoshi27,
-                            size: 30,
-                            color: Color(0xFFeeaa45),
+                          GradientText(
+                            '\ue92f',
+                            shaderRect: Rect.fromLTWH(0.0, 0.0, 20.0, 20.0),
+                            gradient: LinearGradient(
+                                colors: [Color(0xfff0bf80), Color(0xffe8963d)]),
+                            style: TextStyle(
+                                fontSize: 30.0, fontFamily: 'Iconfont'),
                           ),
                           _textWrap('小食'),
                         ],
@@ -142,10 +166,13 @@ class _MyIndexState extends State<MyIndex> {
                       ),
                       child: Column(
                         children: <Widget>[
-                          Icon(
-                            Iconfont.yanchu28,
-                            size: 30,
-                            color: Color(0xFF9f58ec),
+                          GradientText(
+                            '\ue930',
+                            shaderRect: Rect.fromLTWH(0.0, 0.0, 20.0, 20.0),
+                            gradient: LinearGradient(
+                                colors: [Color(0xffaf5ff1), Color(0xff9c56ec)]),
+                            style: TextStyle(
+                                fontSize: 30.0, fontFamily: 'Iconfont'),
                           ),
                           _textWrap('演出票'),
                         ],
@@ -224,21 +251,23 @@ class _MyIndexState extends State<MyIndex> {
               ),
             ),
           ),
-          Container(
-            height: 400,
-            // child: FlatButton(
-            //   child: Text('888'),
-            //   onPressed: () {
-            //     Navigator.pushNamed(context, 'test_page');
-            //   },
-            // ),
+          _cardWidget(
+            title: '我的记录',
+            child: Container(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Row(
+                      children: <Widget>[],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-          // FlatButton(
-          //   child: Text('改变主题'),
-          //   onPressed: () {
-          //     Provider.of<AppMadel>(context, listen: false).changeThemeType();
-          //   },
-          // ),
+          SizedBox(
+            height: 300,
+          ),
         ],
       ),
     );
@@ -246,12 +275,16 @@ class _MyIndexState extends State<MyIndex> {
 
   Widget _topView(UserModel userInfo) {
     return Container(
+      // color: Color(0xffabb3c3),
       margin: EdgeInsets.only(
         top: 100,
         bottom: 15,
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: 20,
+      padding: EdgeInsets.only(
+        left: 20,
+        right: 20,
+        // top: 100,
+        // bottom: 15,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -396,7 +429,7 @@ class _MyIndexState extends State<MyIndex> {
   Widget _textWrap(String title) {
     return Container(
       margin: EdgeInsets.only(
-        top: 6,
+        top: 4,
       ),
       child: Text(
         title,
