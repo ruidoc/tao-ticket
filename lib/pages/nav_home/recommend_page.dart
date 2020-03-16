@@ -26,7 +26,7 @@ class _RecommendPageState extends State<RecommendPage>
 
   @override
   void initState() {
-    if(_recdModel is! RecommendModel) {
+    if (_recdModel is! RecommendModel) {
       _fatchData();
     }
     super.initState();
@@ -98,10 +98,10 @@ class _RecommendPageState extends State<RecommendPage>
   Widget _filmLists(context) {
     final _flims = _recdModel?.filmsData ?? [];
     return ListView.builder(
-      shrinkWrap: true,
+      // shrinkWrap: true,
       itemCount: _flims.length,
       scrollDirection: Axis.horizontal,
-      // itemExtent: 85,
+      // itemExtent: 130,
       itemBuilder: (BuildContext context, int index) {
         double _left = 0;
         double _right = 12;
@@ -122,10 +122,12 @@ class _RecommendPageState extends State<RecommendPage>
                 height: 130,
                 margin: EdgeInsets.only(bottom: 3),
                 decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(5),
-                    image: DecorationImage(
-                        image: NetworkImage(item.url), fit: BoxFit.cover)),
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(5),
+                  image: DecorationImage(
+                    image: NetworkImage(item.url), fit: BoxFit.cover,
+                  ),
+                ),
                 child: Stack(
                   children: <Widget>[],
                 ),

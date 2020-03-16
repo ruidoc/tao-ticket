@@ -6,6 +6,7 @@ class CostomScaffold extends StatefulWidget {
   CostomScaffold({
     this.title,
     this.child,
+    this.offset = 0,
     this.isStack = false,
     this.opacity = 1,
   });
@@ -14,6 +15,7 @@ class CostomScaffold extends StatefulWidget {
   final Widget child;
   final bool isStack;
   final double opacity;
+  final double offset;
 
   @override
   _CostomScaffoldState createState() => _CostomScaffoldState();
@@ -25,11 +27,9 @@ class _CostomScaffoldState extends State<CostomScaffold> {
   @override
   Widget build(BuildContext context) {
     paddingTop = MediaQuery.of(context).padding.top;
-    return Container(
-      // color: Colors.red,
-      child: SizedBox.expand(
-        child: widget.isStack ? stackLayout() : flowLayout(),
-      ),
+    return Scaffold(
+      // color: Color(0xffabb3c3),
+      body: widget.isStack ? stackLayout() : flowLayout(),
     );
   }
 
@@ -92,7 +92,7 @@ class _CostomScaffoldState extends State<CostomScaffold> {
     return Stack(
       children: <Widget>[
         Container(
-          height: 200,
+          height: 200 - widget.offset,
           color: Color(0xffabb3c3),
         ),
         SizedBox.expand(
